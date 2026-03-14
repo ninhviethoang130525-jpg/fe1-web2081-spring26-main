@@ -6,7 +6,7 @@ import { About } from './pages/about/about';
 
 export const routes: Routes = [
   {
-    path: 'home', // ko code /home
+    path: '', // ko code /home
     component: Home,
   },
   {
