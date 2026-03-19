@@ -6,11 +6,4 @@ import { Component } from '@angular/core';
   templateUrl: './home.html',
   styleUrl: './home.css',
 })
-export class Home {
-  fullName: string = "Hoang";
-  age: number = 20;
-
-  sayHello() {
-    alert("Xin chào Angular ");
-}
-}
+export class Home {}

@@ -3,10 +3,12 @@ import { Home } from './home/home';
 import { Contact } from './pages/contact/contact';
 import { Products } from './pages/products/products';
 import { About } from './pages/about/about';
+import { Stories } from './pages/stories/stories';
+import { AddStory } from './pages/add-story/add-story';
 
 export const routes: Routes = [
   {
-    path: '', // ko code /home
+    path: 'home', // ko code /home
     component: Home,
   },
   {
@@ -20,5 +22,13 @@ export const routes: Routes = [
   {
     path: 'products',
     component: Products,
+  },
+  {
+    path: 'stories',
+    component: Stories,
+  },
+  {
+    path: 'add-story',
+    component: AddStory,
   },
 ];

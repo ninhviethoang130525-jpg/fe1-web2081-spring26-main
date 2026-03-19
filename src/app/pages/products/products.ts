@@ -1,19 +1,9 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-products',
-  standalone: true,
-  imports: [CommonModule],
+  imports: [],
   templateUrl: './products.html',
-  styleUrls: ['./products.css']
+  styleUrl: './products.css',
 })
-export class Products {
-
-  products = [
-    'Laptop',
-    'Phone',
-    'Tablet'
-  ];
-
-}
+export class Products {}
