@@ -1,6 +1,52 @@
-<p>Danh sach san pham</p>
+<h2>Thêm Sản phẩm</h2>
+
+<form [formGroup]="addProductForm" (ngSubmit)="submitForm()">
+  <div>
+    <label for="productName">Tên sản phẩm:</label>
+    <input
+      id="productName"
+      type="text"
+      formControlName="name"
+      placeholder="Nhập tên sản phẩm" />
+    <div *ngIf="name?.invalid && name?.touched" class="error-message">
+      <p *ngIf="name?.errors?.['required']">Tên sản phẩm là bắt buộc</p>
+    </div>
+  </div>
+
+  <div>
+    <label for="productPrice">Giá tiền:</label>
+    <input
+      id="productPrice"
+      type="number"
+      formControlName="price"
+      placeholder="Nhập giá tiền" />
+    <div *ngIf="price?.invalid && price?.touched" class="error-message">
+      <p *ngIf="price?.errors?.['required']">Giá tiền là bắt buộc</p>
+      <p *ngIf="price?.errors?.['min']">Giá tiền phải lớn hơn 0</p>
+    </div>
+  </div>
+
+  <div>
+    <label for="productCategory">Danh mục:</label>
+    <select id="productCategory" formControlName="category">
+      <option value="">-- Chọn danh mục --</option>
+      <option value="Laptop">Laptop</option>
+      <option value="Điện thoại">Điện thoại</option>
+      <option value="Tablet">Tablet</option>
+    </select>
+    <div *ngIf="category?.invalid && category?.touched" class="error-message">
+      <p *ngIf="category?.errors?.['required']">Danh mục là bắt buộc</p>
+    </div>
+  </div>
+
+  <button type="submit" [disabled]="addProductForm.invalid">Thêm sản phẩm</button>
+</form>
+
+<hr>
+
+<h2>Danh sách sản phẩm</h2>
 <ul>
-  <li><a href="/products/laptop">laptop</a></li>
+  <li><a href="/products/laptop">Laptop</a></li>
   <li><a href="/products/phone">Điện thoại</a></li>
   <li><a href="/products/tablet">Tablet</a></li>
 </ul>

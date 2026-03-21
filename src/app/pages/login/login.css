@@ -1,23 +1,28 @@
+h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
 form {
   display: flex;
   flex-direction: column;
+  gap: 15px;
   max-width: 400px;
-  margin: 20px 0;
+  margin-bottom: 20px;
 }
 
 div {
-  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 
 label {
-  display: block;
-  margin-bottom: 5px;
   font-weight: bold;
+  font-size: 14px;
 }
 
-input,
-select {
-  width: 100%;
+input {
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -25,8 +30,7 @@ select {
   box-sizing: border-box;
 }
 
-input:focus,
-select:focus {
+input:focus {
   outline: none;
   border-color: #007bff;
   box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
@@ -52,37 +56,30 @@ button:disabled {
   cursor: not-allowed;
 }
 
-p {
-  margin: 5px 0;
-  font-size: 12px;
-}
-
-hr {
-  margin: 30px 0;
-}
-
-h2 {
-  margin-bottom: 20px;
-  color: #333;
-}
-
-ul {
-  list-style: none;
-  padding: 0;
-}
-
-ul li {
-  margin: 10px 0;
-}
-
-ul li a {
-  color: #007bff;
-  text-decoration: none;
-}
-
-ul li a:hover {
-  text-decoration: underline;
-}
 .error-message {
   color: red;
+  font-size: 12px;
+  margin-top: 3px;
+}
+
+.error-message p {
+  margin: 3px 0;
+}
+
+.register-link {
+  margin-top: 15px;
+  padding: 10px;
+  background-color: #f0f0f0;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.register-link a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.register-link a:hover {
+  text-decoration: underline;
 }

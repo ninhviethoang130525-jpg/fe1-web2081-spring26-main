@@ -1,16 +1,48 @@
-<h2>Danh sách truyện tranh</h2>
+<h2>theem và xóa</h2>
 
-@for (story of stories; track story.title) {
-  <div class="story-card">
-    <img [src]="story.image" alt="">
-    <h3>{{ story.title }}</h3>
-    
-    <p>Tác giả: {{ story.author }}</p>
-    <p>Lượt xem: {{ story.views }}</p>
-    @if(story.views > 90000){
-
-        <p>truyen noi bat</p>
-    }
-    <button (click)="handleClick(story.title)">Click me</button>
+<form [formGroup]="addStoryForm" (ngSubmit)="addStory()">
+  <div>
+    <label for="title">Tên truyện:</label>
+    <input id="title" type="text" formControlName="title" placeholder="Nhập tên truyện" />
+    <div *ngIf="title?.invalid && title?.touched" class="error-message">
+      <p *ngIf="title?.errors?.['required']">Tên truyện là bắt buộc</p>
+    </div>
   </div>
-}
+
+  <div>
+    <label for="author">Tác giả:</label>
+    <input id="author" type="text" formControlName="author" placeholder="Nhập tên tác giả" />
+    <div *ngIf="author?.invalid && author?.touched" class="error-message">
+      <p *ngIf="author?.errors?.['required']">Tác giả là bắt buộc</p>
+    </div>
+  </div>
+
+  <div>
+    <label for="views">Lượt xem:</label>
+    <input id="views" type="number" formControlName="views" placeholder="Nhập lượt xem" />
+    <div *ngIf="views?.invalid && views?.touched" class="error-message">
+      <p *ngIf="views?.errors?.['required']">Lượt xem là bắt buộc</p>
+      <p *ngIf="views?.errors?.['min']">Lượt xem phải >= 0</p>
+    </div>
+  </div>
+
+  <div>
+    <label for="genre">Thể loại:</label>
+    <input id="genre" type="text" formControlName="genre" placeholder="Nhập thể loại" />
+    <div *ngIf="genre?.invalid && genre?.touched" class="error-message">
+      <p *ngIf="genre?.errors?.['required']">Thể loại là bắt buộc</p>
+    </div>
+  </div>
+
+  <button type="submit" [disabled]="addStoryForm.invalid">Thêm story</button>
+</form>
+
+<div class="story-list">
+  <h3>Danh sách stories</h3>
+  <ul>
+    <li *ngFor="let story of stories; index as i" class="story-item">
+      <span>{{ story.title }} - {{ story.author }} - {{ story.genre }} - {{ story.views }} views</span>
+      <button type="button" (click)="deleteStory(i)">Xóa</button>
+    </li>
+  </ul>
+</div>

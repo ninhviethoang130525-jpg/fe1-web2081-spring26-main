@@ -1,13 +1,45 @@
-<h2 class="text-xl">Thêm truyện tranh</h2>
+<!-- <h2>Thêm truyện tranh</h2>
 
 <form [formGroup]="addForm" (ngSubmit)="submitForm()">
+
   <div>
-    <label>Tên truyện</label>
-    <input 
+    <label for="title">Tên truyện:</label>
+    <input
+      id="title"
       type="text"
-     formControlName="title"
-     placeholder="Nhập tên truyện" />
-     <img src="" alt="">
+      formControlName="title"
+      placeholder="Nhập tên truyện" />
+    <div *ngIf="title?.invalid && title?.touched" class="error-message">
+      <p *ngIf="title?.errors?.['required']">Tên truyện là bắt buộc</p>
+      <p *ngIf="title?.errors?.['minlength']">Tên truyện phải ít nhất 3 ký tự</p>
+    </div>
   </div>
-  <button type="submit">Thêm truyện</button>
-</form>
+
+
+  <div>
+    <label for="author">Tác giả:</label>
+    <input
+      id="author"
+      type="text"
+      formControlName="author"
+      placeholder="Nhập tên tác giả" />
+    <div *ngIf="author?.invalid && author?.touched" class="error-message">
+      <p *ngIf="author?.errors?.['required']">Tác giả là bắt buộc</p>
+    </div>
+  </div>
+
+
+  <div>
+    <label for="views">Lượt xem:</label>
+    <input
+      id="views"
+      type="number"
+      formControlName="views"
+      placeholder="Nhập lượt xem" />
+    <div *ngIf="views?.invalid && views?.touched" class="error-message">
+      <p *ngIf="views?.errors?.['required']">Lượt xem là bắt buộc</p>
+      <p *ngIf="views?.errors?.['min']">Lượt xem phải lớn hơn hoặc bằng 0</p>
+    </div>
+  </div>
+  <button type="submit" [disabled]="addForm.invalid">Thêm truyện</button>
+</form> -->

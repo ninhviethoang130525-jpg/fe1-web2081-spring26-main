@@ -22,7 +22,6 @@ select {
   border: 1px solid #ccc;
   border-radius: 4px;
   font-size: 14px;
-  box-sizing: border-box;
 }
 
 input:focus,
@@ -66,23 +65,25 @@ h2 {
   color: #333;
 }
 
-ul {
-  list-style: none;
-  padding: 0;
-}
-
-ul li {
-  margin: 10px 0;
-}
-
-ul li a {
-  color: #007bff;
-  text-decoration: none;
-}
-
-ul li a:hover {
-  text-decoration: underline;
-}
 .error-message {
   color: red;
+  margin-top: 5px;
+}
+
+.login-link {
+  margin-top: 15px;
+  padding: 10px;
+  background-color: #f0f0f0;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.login-link a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.login-link a:hover {
+  text-decoration: underline;
 }
