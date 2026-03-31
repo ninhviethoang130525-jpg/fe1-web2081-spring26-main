@@ -1,0 +1,50 @@
+<div class="p-6">
+  <h1 class="text-2xl font-semibold mb-6">Quản lý Sách</h1>
+
+  <div class="overflow-x-auto">
+    <table class="w-full border border-gray-300 rounded-lg">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="px-4 py-2 border border-gray-300 text-center">ID</th>
+          <th class="px-4 py-2 border border-gray-300 text-center">Tên Sách</th>
+          <th class="px-4 py-2 border border-gray-300 text-center">Số lượng</th>
+          <th class="px-4 py-2 border border-gray-300 text-center">Ảnh bìa</th>
+          <th class="px-4 py-2 border border-gray-300 text-center">Thể loại</th>
+          <th class="px-4 py-2 border border-gray-300 text-center">Thao tác</th> </tr>
+      </thead>
+
+      <tbody>
+        @for(item of name; track item.id){
+        <tr class="hover:bg-gray-50">
+          <td class="px-4 py-2 border border-gray-300 text-center">{{ item.id }}</td>
+          <td class="px-4 py-2 border border-gray-300">{{ item.title }}</td>
+          <td class="px-4 py-2 border border-gray-300 text-center">{{ item.quantity }}</td>
+          
+          <td class="px-4 py-2 border border-gray-300 text-center">
+            <img [src]="item.coverImage" 
+                 alt="Bìa sách" 
+                 class="w-16 h-20 object-cover mx-auto rounded shadow"
+                 onerror="this.src='https://via.placeholder.com/150'">
+          </td>
+
+          <td class="px-4 py-2 border border-gray-300 text-center">{{ item.genre }}</td>
+
+          <td class="px-4 py-2 border border-gray-300">
+            <div class="flex gap-2 justify-center">
+              <button 
+                      class="px-4 py-1.5 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">
+                
+              <a href="/edit/{{ item.id }}">Edit</a>
+              </button>
+              <button (click)="deleteGroup(item.id)"
+                      class="px-4 py-1.5 bg-red-600 text-white rounded-lg hover:bg-red-700 transition">
+                Delete
+              </button>
+            </div>
+          </td>
+        </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</div>

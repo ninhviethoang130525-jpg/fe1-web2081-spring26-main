@@ -1,0 +1,53 @@
+<div class="p-6">
+  <h1 class="text-2xl font-semibold mb-6">Thêm mới</h1>
+
+  <form [formGroup] = "name" class="space-y-6" (ngSubmit)="submitForm()">
+    <div>
+      <label htmlFor="text" class="block font-medium mb-1"> thêm tên sách </label>
+      <input
+      formControlName = "Title"
+        type="text"
+        id="text"
+        class="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"    
+      />
+    </div>
+
+      <div>
+      <label htmlFor="text" class="block font-medium mb-1"> Số lượng </label>
+      <input
+      formControlName = "Quantity"
+        type="text"
+        id="text"
+        class="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"    
+      />
+    </div>
+
+    <div>
+  <label htmlFor="coverImage" class="block font-medium mb-1">Đường dẫn ảnh (URL)</label>
+  <input
+    formControlName="coverImage"
+    type="text"
+    id="coverImage"
+    placeholder="Dán link ảnh vào đây hoặc để trống để lấy ảnh ngẫu nhiên"
+    class="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"    
+  />
+</div>
+
+      <div>
+      <label htmlFor="text" class="block font-medium mb-1"> Thể loại </label>
+      <input
+      formControlName = "Genre"
+        type="text"
+        id="text"
+        class="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"    
+      />
+    </div>
+
+    <button
+      type="submit"
+      class="px-5 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
+    >
+      Submit
+    </button>
+  </form>
+</div>

@@ -1,0 +1,60 @@
+<div class="p-6">
+  <h1 class="text-2xl font-semibold mb-6">Chỉnh sửa sách</h1>
+
+  <form [formGroup]="editForm" class="space-y-6" (ngSubmit)="submitForm()">
+    <div>
+      <label class="block font-medium mb-1">Tên sách</label>
+      <input
+        formControlName="title" 
+        type="text"
+        class="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+      />
+    </div>
+
+    <div>
+      <label class="block font-medium mb-1">Số lượng</label>
+      <input
+        formControlName="quantity"
+        type="number"
+        class="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+      />
+    </div>
+
+    <div>
+      <label class="block font-medium mb-1">Đường dẫn ảnh (URL)</label>
+      <input
+        formControlName="coverImage"
+        type="text"
+        class="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+      />
+      <img [src]="editForm.value.coverImage" *ngIf="editForm.value.coverImage" 
+           class="mt-2 w-20 h-24 object-cover rounded shadow"
+           onerror="this.src='https://placehold.co/150x200?text=No+Image'">
+    </div>
+
+    <div>
+      <label class="block font-medium mb-1">Thể loại</label>
+      <input
+        formControlName="genre"
+        type="text"
+        class="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+      />
+    </div>
+
+    <div class="flex gap-4">
+      <button
+        type="submit"
+        class="px-5 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
+      >
+        Cập nhật
+      </button>
+      <button
+  type="button"
+  (click)="goBack()" 
+  class="px-5 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-600 transition"
+>
+  Hủy
+</button>
+    </div>
+  </form>
+</div>
