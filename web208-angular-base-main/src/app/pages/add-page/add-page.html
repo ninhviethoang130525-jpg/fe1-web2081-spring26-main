@@ -1,53 +1,34 @@
-<div class="p-6">
-  <h1 class="text-2xl font-semibold mb-6">Thêm mới</h1>
+<div class="max-w-md mx-auto p-6 bg-white shadow rounded-xl mt-10">
+  <h1 class="text-2xl font-bold mb-6 text-center text-gray-800">Thêm sách mới</h1>
 
-  <form [formGroup] = "name" class="space-y-6" (ngSubmit)="submitForm()">
+  <form [formGroup]="name" (ngSubmit)="submitForm()" class="space-y-4">
     <div>
-      <label htmlFor="text" class="block font-medium mb-1"> thêm tên sách </label>
-      <input
-      formControlName = "Title"
-        type="text"
-        id="text"
-        class="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"    
-      />
-    </div>
-
-      <div>
-      <label htmlFor="text" class="block font-medium mb-1"> Số lượng </label>
-      <input
-      formControlName = "Quantity"
-        type="text"
-        id="text"
-        class="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"    
-      />
+      <label class="block text-sm font-medium mb-1">Tên sách</label>
+      <input formControlName="title" type="text" placeholder="Nhập tên sách..."
+        class="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 outline-none" />
     </div>
 
     <div>
-  <label htmlFor="coverImage" class="block font-medium mb-1">Đường dẫn ảnh (URL)</label>
-  <input
-    formControlName="coverImage"
-    type="text"
-    id="coverImage"
-    placeholder="Dán link ảnh vào đây hoặc để trống để lấy ảnh ngẫu nhiên"
-    class="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"    
-  />
-</div>
-
-      <div>
-      <label htmlFor="text" class="block font-medium mb-1"> Thể loại </label>
-      <input
-      formControlName = "Genre"
-        type="text"
-        id="text"
-        class="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"    
-      />
+      <label class="block text-sm font-medium mb-1">Số lượng</label>
+      <input formControlName="quantity" type="number"
+        class="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 outline-none" />
     </div>
 
-    <button
-      type="submit"
-      class="px-5 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
-    >
-      Submit
+    <div>
+      <label class="block text-sm font-medium mb-1">Link ảnh (URL)</label>
+      <input formControlName="coverImage" type="text" placeholder="https://..."
+        class="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 outline-none" />
+    </div>
+
+    <div>
+      <label class="block text-sm font-medium mb-1">Thể loại</label>
+      <input formControlName="genre" type="text" placeholder="Văn học, Khoa học..."
+        class="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 outline-none" />
+    </div>
+
+    <button type="submit" 
+      class="w-full py-2.5 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition duration-200">
+      Thêm mới
     </button>
   </form>
 </div>

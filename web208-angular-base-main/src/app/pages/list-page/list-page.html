@@ -1,48 +1,61 @@
 <div class="p-6">
-  <h1 class="text-2xl font-semibold mb-6">Quản lý Sách</h1>
+  <h1 class="text-2xl font-semibold mb-6 text-center text-blue-700">Quản lý Sách</h1>
 
-  <div class="overflow-x-auto">
-    <table class="w-full border border-gray-300 rounded-lg">
+  <div class="overflow-x-auto bg-white rounded-lg shadow">
+    <table class="w-full border-collapse border border-gray-200">
       <thead class="bg-gray-100">
         <tr>
-          <th class="px-4 py-2 border border-gray-300 text-center">ID</th>
-          <th class="px-4 py-2 border border-gray-300 text-center">Tên Sách</th>
-          <th class="px-4 py-2 border border-gray-300 text-center">Số lượng</th>
-          <th class="px-4 py-2 border border-gray-300 text-center">Ảnh bìa</th>
-          <th class="px-4 py-2 border border-gray-300 text-center">Thể loại</th>
-          <th class="px-4 py-2 border border-gray-300 text-center">Thao tác</th> </tr>
+          <th class="px-4 py-3 border border-gray-200 text-center text-sm font-bold uppercase">ID</th>
+          <th class="px-4 py-3 border border-gray-200 text-left text-sm font-bold uppercase">Tên Sách</th>
+          <th class="px-4 py-3 border border-gray-200 text-center text-sm font-bold uppercase">Số lượng</th>
+          <th class="px-4 py-3 border border-gray-200 text-center text-sm font-bold uppercase">Ảnh bìa</th>
+          <th class="px-4 py-3 border border-gray-200 text-center text-sm font-bold uppercase">Thể loại</th>
+          <th class="px-4 py-3 border border-gray-200 text-center text-sm font-bold uppercase">Thao tác</th>
+        </tr>
       </thead>
 
       <tbody>
         @for(item of name; track item.id){
-        <tr class="hover:bg-gray-50">
-          <td class="px-4 py-2 border border-gray-300 text-center">{{ item.id }}</td>
-          <td class="px-4 py-2 border border-gray-300">{{ item.title }}</td>
-          <td class="px-4 py-2 border border-gray-300 text-center">{{ item.quantity }}</td>
+        <tr class="hover:bg-blue-50 transition-colors duration-200">
+          <td class="px-4 py-3 border border-gray-200 text-center font-medium">{{ item.id }}</td>
+          <td class="px-4 py-3 border border-gray-200 font-semibold text-gray-700">{{ item.title }}</td>
+          <td class="px-4 py-3 border border-gray-200 text-center">
+             <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">
+               {{ item.quantity }} cuốn
+             </span>
+          </td>
           
-          <td class="px-4 py-2 border border-gray-300 text-center">
+          <td class="px-4 py-3 border border-gray-300 text-center">
             <img [src]="item.coverImage" 
                  alt="Bìa sách" 
-                 class="w-16 h-20 object-cover mx-auto rounded shadow"
-                 onerror="this.src='https://via.placeholder.com/150'">
+                 class="w-14 h-20 object-cover mx-auto rounded shadow border"
+                 onerror="this.src='https://via.placeholder.com/150x200?text=No+Image'">
           </td>
 
-          <td class="px-4 py-2 border border-gray-300 text-center">{{ item.genre }}</td>
+          <td class="px-4 py-3 border border-gray-300 text-center">
+            <span class="px-3 py-1 bg-green-100 text-green-700 rounded-lg text-xs font-bold">{{ item.genre }}</span>
+          </td>
 
-          <td class="px-4 py-2 border border-gray-300">
+          <td class="px-4 py-3 border border-gray-300">
             <div class="flex gap-2 justify-center">
-              <button 
-                      class="px-4 py-1.5 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">
-                
-              <a href="/edit/{{ item.id }}">Edit</a>
-              </button>
+              <a [routerLink]="['/edit', item.id]" 
+                 class="px-3 py-1.5 bg-yellow-500 text-white rounded hover:bg-yellow-600 transition text-xs font-bold">
+                Sửa
+              </a>
+
               <button (click)="deleteGroup(item.id)"
-                      class="px-4 py-1.5 bg-red-600 text-white rounded-lg hover:bg-red-700 transition">
-                Delete
+                      class="px-3 py-1.5 bg-red-600 text-white rounded hover:bg-red-700 transition text-xs font-bold">
+                Xóa
               </button>
             </div>
           </td>
         </tr>
+        } @empty {
+          <tr>
+            <td colspan="6" class="text-center py-10 text-gray-400 italic">
+              Không có dữ liệu sách trong hệ thống...
+            </td>
+          </tr>
         }
       </tbody>
     </table>

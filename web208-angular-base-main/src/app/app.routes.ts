@@ -5,6 +5,11 @@ import { EditPage } from './pages/edit-page/edit-page';
 
 export const routes: Routes = [
     {
+        path: '',
+        redirectTo: 'list',
+        pathMatch: 'full',
+    },
+    {
         path: 'list',
         component: ListPage, 
     },
@@ -15,5 +20,9 @@ export const routes: Routes = [
     {
         path: 'edit/:id',
         component: EditPage,
+    },
+    {
+        path: '**',
+        redirectTo: 'list',
     }
 ];
